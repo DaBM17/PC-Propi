@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nom_de_la_web</title>
+    <style>
+        h1 {
+            color: #000000;
+            font-size: 30px;
+            font-family: fantasy;
+        }
+
+        ul ul {
+            display: none;
+        }
+
+        .expand:before {
+            content: '\25B8';
+            margin-right: 5px;
+        }
+
+        .collapse:before {
+            content: '\25BE'; /* Triángulo abajo */
+            margin-right: 5px;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e8dbda;
+            display: flex;
+            flex-direction: column;
+            min-height: 700px;
+        }
+
+        header {
+            background-color: #e70a0a;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+        }
+
+        #nombre {
+            font-size: 100px;
+            font-family: fantasy;
+            text-align: center;
+            color: #000000;
+        }
+
+        a:link {
+            text-decoration: none;
+            color: #000000;
+        }
+
+
+        a:visited {
+            text-decoration: none;
+            color: #000000;
+        }
+
+        a:hover {
+            text-decoration: none;
+            color: #000000;
+        }
+
+        a:active {
+            text-decoration: none;
+            color: #000000;
+        }
+
+        footer {
+            background-color: #e70a0a;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            width: 100%;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div id="nombre"><a href="main_page.php">PC Propi</a></div>
+</header>
+<h1>Categories</h1>
+<ul>
+    <li>Ordinadors d'escritori</li>
+    <li>Portàtils</li>
+    <li>Monitors</li>
+    <li class="expand">Perifèrics
+        <br>
+        <ul>
+            <li>Teclats</li>
+            <li>Auriculars</li>
+            <li>Mouses</li>
+        </ul>
+    </li>
+    <li class="expand">Components PC
+        <ul>
+            <li>Processadors</li>
+            <li class="expand">Dispotius de memoria
+                <ul>
+                    <li>RAM</li>
+                    <li>USB</li>
+                </ul>
+            </li>
+            <li>Targetes de xarxa</li>
+            <li>Caixes PC escriptori</li>
+            <li class="expand">Refrigeració
+                <ul>
+                    <li>Refrigeració liquida</li>
+                    <li>Ventiladors</li>
+                </ul>
+            </li>
+
+        </ul>
+    </li>
+</ul>
+<footer>
+    <a href="https://www.uab.cat/"><img src="img/UAB-2linies-verd.svg" width="300px"></a>
+    <p>&copy; 2023 TDIW-a4</p>
+</footer>
+</body>
+<script>
+    const llistesExpandibles = document.querySelectorAll('.expand');
+    llistesExpandibles.forEach((element) => {
+        element.addEventListener('click', (event) => {
+            event.stopPropagation(); // Evita que el evento se propague
+            const subLlista = element.querySelector('ul');
+            if (subLlista.style.display === 'none' || subLlista.style.display === '')
+            {
+                subLlista.style.display = 'block';
+                element.classList.remove('expand');
+                element.classList.add('collapse');
+            }
+            else
+            {
+                subLlista.style.display = 'none';
+                element.classList.remove('collapse');
+                element.classList.add('expand');
+            }
+        });
+    });
+</script>
+</html>
